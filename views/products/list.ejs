@@ -1,0 +1,45 @@
+<h3 class="mb-4">Danh sách sản phẩm</h3>
+
+<a href="/products/create" class="btn btn-primary mb-3">+ Thêm sản phẩm</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Nhà cung cấp</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (products.length === 0) { %>
+            <tr>
+                <td colspan="5" class="text-center">Chưa có sản phẩm nào</td>
+            </tr>
+            <% } else { %>
+                <% products.forEach(p => { %>
+                    <tr>
+                        <td>
+                            <%= p.name %>
+                        </td>
+                        <td>
+                            <%= p.price %>
+                        </td>
+                        <td>
+                            <%= p.quantity %>
+                        </td>
+                        <td>
+                            <%= p.supplier ? p.supplier.name : '' %>
+                        </td>
+                        <td>
+                            <a href="/products/<%= p._id %>/edit" class="btn btn-sm btn-warning">Sửa</a>
+                            <form method="post" action="/products/<%= p._id %>/delete" style="display:inline;">
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')">Xóa</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }) %>
+                        <% } %>
+    </tbody>
+</table>

@@ -1,0 +1,49 @@
+<h2 class="mb-4 text-center">Trang chủ hệ thống</h2>
+
+<div class="row g-4">
+    <% if (!user) { %>
+        <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Đăng nhập</h5>
+                    <p class="card-text">Đăng nhập để sử dụng hệ thống.</p>
+                    <a href="/auth/login" class="btn btn-success">Đăng nhập</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Đăng ký</h5>
+                    <p class="card-text">Tạo tài khoản mới.</p>
+                    <a href="/auth/register" class="btn btn-warning">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+        <% } else { %>
+            <div class="col-md-3">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Quản lý sản phẩm</h5>
+                        <a href="/products" class="btn btn-primary">Vào sản phẩm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Quản lý nhà cung cấp</h5>
+                        <a href="/suppliers" class="btn btn-primary">Vào nhà cung cấp</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Đăng xuất</h5>
+                        <a href="/auth/logout" class="btn btn-danger">Đăng xuất</a>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+</div>

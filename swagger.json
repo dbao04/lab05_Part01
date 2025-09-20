@@ -1,0 +1,8 @@
+{
+  "openapi": "3.0.0",
+  "info": { "title": "Lab1 API", "version": "1.0.0" },
+  "paths": {
+    "/suppliers": { "get": { "summary": "Get suppliers" }, "post": { "summary": "Create supplier" } },
+    "/products": { "get": { "summary": "Get products" }, "post": { "summary": "Create product" } }
+  }
+}

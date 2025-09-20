@@ -1,0 +1,35 @@
+<h3 class="mb-4">
+    <%= product && product._id ? "Sửa sản phẩm" : "Thêm sản phẩm" %>
+</h3>
+
+<form method="post" action="<%= product && product._id ? '/products/' + product._id + '/edit' : '/products/create' %>" class="w-50">
+    <div class="mb-3">
+        <label for="name" class="form-label">Tên sản phẩm</label>
+        <input type="text" id="name" name="name" class="form-control" value="<%= product ? product.name : '' %>" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="price" class="form-label">Giá</label>
+        <input type="number" id="price" name="price" class="form-control" value="<%= product ? product.price : '' %>" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="quantity" class="form-label">Số lượng</label>
+        <input type="number" id="quantity" name="quantity" class="form-control" value="<%= product ? product.quantity : '' %>" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="supplier" class="form-label">Nhà cung cấp</label>
+        <select id="supplier" name="supplier" class="form-select" required>
+      <option value="">-- Chọn nhà cung cấp --</option>
+      <% suppliers.forEach(s => { %>
+        <option value="<%= s._id %>" <%= product && product.supplier && (product.supplier.toString() === s._id.toString()) ? 'selected' : '' %>>
+          <%= s.name %>
+        </option>
+      <% }) %>
+    </select>
+    </div>
+
+    <button type="submit" class="btn btn-success"><%= product && product._id ? "Cập nhật" : "Thêm mới" %></button>
+    <a href="/products" class="btn btn-secondary">Hủy</a>
+</form>

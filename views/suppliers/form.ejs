@@ -1,0 +1,23 @@
+<h3 class="mb-4">
+    <%= supplier && supplier._id ? "Sửa nhà cung cấp" : "Thêm nhà cung cấp" %>
+</h3>
+
+<form method="post" action="<%= supplier && supplier._id ? '/suppliers/' + supplier._id + '/edit' : '/suppliers/create' %>" class="w-50">
+    <div class="mb-3">
+        <label for="name" class="form-label">Tên nhà cung cấp</label>
+        <input type="text" id="name" name="name" class="form-control" value="<%= supplier ? supplier.name : '' %>" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="address" class="form-label">Địa chỉ</label>
+        <input type="text" id="address" name="address" class="form-control" value="<%= supplier ? supplier.address : '' %>" />
+    </div>
+
+    <div class="mb-3">
+        <label for="phone" class="form-label">Số điện thoại</label>
+        <input type="text" id="phone" name="phone" class="form-control" value="<%= supplier ? supplier.phone : '' %>" />
+    </div>
+
+    <button type="submit" class="btn btn-success"><%= supplier && supplier._id ? "Cập nhật" : "Thêm mới" %></button>
+    <a href="/suppliers" class="btn btn-secondary">Hủy</a>
+</form>
